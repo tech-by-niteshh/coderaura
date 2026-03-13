@@ -1,19 +1,19 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/message', (req, res) => {
-    const name = req.query.name || 'Developer';
-    res.json({
-        message: `Hello ${name}! Backend is working! 🎉`,
-        timestamp: new Date()
-    });
+app.get("/", (req, res) => {
+    res.send("Backend Running 🚀");
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.get("/api/message", (req, res) => {
+    res.json({ message: "Hello from Render Backend 🔥" });
 });
+
+const PORT = process.env.PORT || 10000;
+
+app.listen(PORT, () => console.log("Server started"));
